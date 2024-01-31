@@ -4,32 +4,34 @@ A sample application to demonstrate how to use the proposed `OnAcceleratedPaint(
 
 ## Build Instructions
 
-1. If you don't have it already - install CMake and Visual Studio 2017
-    * VS 2017 Community Edition is fine - just make sure to install C/C++ development tools
+1. If you don't have it already - install CMake and Visual Studio 2022
+    * Make sure to install C/C++ development tools
 
 2. Download latest CEF to create a custom build or use an example binary distribution
-    * Sample distributions support **Chromium 72**
+    * Sample distribution support **Chromium 120**
     * [x64 sample binary distribution][x64_build] (Release build only)
-    * [x86 sample binary distribution][x86_build] (Release build only)
+
     
 > Note: The above sample distributions are not supported official builds - they are intended for testing/demo purposes.
     
-3. From a command prompt set the environment variable **CEF_ROOT** to the location of your CEF binary distribution.  Then run the gen_vs2017.bat script.
+3. From a command prompt set the environment variable **CEF_ROOT** to the location of your CEF binary distribution.  Then run the gen_vs2022.bat script.
 
 ```
 > set CEF_ROOT=<path\to\cef\binary-distribution>
-> gen_vs2017.bat
+> gen_vs2022.bat
 ```
 
-> Note: if you're building for x86 you will need to modify gen_vs2017.bat to specify the correct generator for CMake
+4. Replace the "cmakeCommandArgs" value with the correct path to the cef binary distribution like this: "-DCEF_ROOT:STRING=<path\to\cef\binary-distribution>"
+Relative path is unfortunately not possible, the existing cmake architecture does not allow this, right now
+![](CmakeSettings.png)
 
-4. Open the build/cefmixer.sln solution in Visual Studio
+5. Open the build/cefmixer.sln solution in Visual Studio
 
 > If using one of the sample binary distributions from step 2 - make sure to change the build configuration to **Release** since the distributions above do not contain **Debug** versions
 
-5. Build the **ALL_BUILD** project
+6. Build the **ALL_BUILD** project
 
-6. Run the **cefmixer.exe** application
+7. Browse to the subfolder: "bin\Release\src\Release" and run the **cefmixer.exe** application
 
 ## Usage
 Once the cefmixer.exe is built, it can be run without any arguments - in which case it will automatically navigate to https://webglsamples.org/aquarium/aquarium.html
@@ -38,18 +40,7 @@ In addition to rendering an HTML view off-screen, the demo application will also
 
 The following screenshot was taken when running on a gaming monitor at 144Hz:
 
-![VSync On][demo1]
-
-The url for the HTML layer can be specified as a command line argument: (width x height for the window size are also supported on the command-line)
-
-```
-cefmixer.exe https://threejs.org/examples/webgl_animation_keyframes_json.html --width=960 --height=540
-```
-Pressing `Ctrl+V` will allow the HTML view to run unthrottled with no v-sync:
-
-![VSync Off][demo2]
-
-Obviously, there are not many use cases to render frames completely unthrottled - but the point is to let the integrating application control all timing aspects. This demo application uses the new `SendExternalBeginFrame` method to issue BeginFrame requests to Chromium to synchronize HTML updates with its render loop.
+![](SampleOutput.png)
 
 ### Multiple Views
 
@@ -158,8 +149,7 @@ A future update could include the following
 [demo2]: https://user-images.githubusercontent.com/2717038/37864824-a02a0648-2f41-11e8-9265-be60ad8bf8a0.png "No VSync"
 [demo3]: https://user-images.githubusercontent.com/2717038/37864648-ea76954c-2f3f-11e8-90d6-4130e56086f4.png "Grid"
 [demo4]: https://user-images.githubusercontent.com/2717038/37930171-9850afe0-3107-11e8-9a24-21e1b1996fa5.png "JSON"
-[x64_build]: https://s3.amazonaws.com/wesselsga/cef/cef_binary_3.3599.1858.g285dbb1_windows64_minimal.7z "x64 Distribution"
-[x86_build]: https://s3.amazonaws.com/wesselsga/cef/cef_binary_3.3599.1858.g285dbb1_windows32_minimal.7z "x86 Distribution"
+[x64_build]: https://cef-builds.spotifycdn.com/cef_binary_121.2.14%2Bga44b59f%2Bchromium-121.0.6167.75_windows64_minimal.tar.bz2 "x64 Distribution"
 [pr158]: https://bitbucket.org/chromiumembedded/cef/pull-requests/158/support-external-textures-in-osr-mode/diff "Pull Request"
 [changes]: https://github.com/daktronics/cef-mixer/blob/master/CHANGES.md "Walkthrough"
 

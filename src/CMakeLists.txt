@@ -2,7 +2,7 @@
 set(ALL_SRCS
 	app.rc
 	composition.h
-	composition.cpp	
+	composition.cpp
 	d3d11.h
 	d3d11.cpp
 	image_layer.cpp
@@ -13,13 +13,13 @@ set(ALL_SRCS
 	util.cpp
 	util.h
 )
-	
+
 # Logical target used to link the libcef library.
 ADD_LOGICAL_TARGET("libcef_lib" "${CEF_LIB_DEBUG}" "${CEF_LIB_RELEASE}")
 
 # Determine the target output directory.
 SET_CEF_TARGET_OUT_DIR()
-	
+
 #include the subdirectory containing our libs
 include_directories(${_CEF_ROOT})
 
@@ -34,8 +34,14 @@ add_dependencies(cefmixer libcef_dll_wrapper)
 # Indicate which libraries to include during the link process.
 target_link_libraries (cefmixer d3d11.lib Shlwapi.lib libcef_lib libcef_dll_wrapper)
 
-COPY_FILES(cefmixer "${CEF_BINARY_FILES}" "${CEF_BINARY_DIR}" "${TARGET_OUTPUT_DIRECTORY}")
-COPY_FILES(cefmixer "${CEF_RESOURCE_FILES}" "${CEF_RESOURCE_DIR}" "${TARGET_OUTPUT_DIRECTORY}")
+# Remakrs Heiner: this was the original version, but this did not copy the needed resources and the dlls into the output directory of the cefmixer
+#COPY_FILES(cefmixer "${CEF_BINARY_FILES}" "${CEF_BINARY_DIR}" "${TARGET_OUTPUT_DIRECTORY}")
+#COPY_FILES(cefmixer "${CEF_RESOURCE_FILES}" "${CEF_RESOURCE_DIR}" "${TARGET_OUTPUT_DIRECTORY}")
+
+# Remakrs Heiner: Tweak to copy resources and the dlls into the output directory of the cefmixer (might not work with linux and other compilers as msvc)
+COPY_FILES(cefmixer "${CEF_BINARY_FILES}" "${CEF_BINARY_DIR}" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
+COPY_FILES(cefmixer "${CEF_RESOURCE_FILES}" "${CEF_RESOURCE_DIR}" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
+
 
 # copy our test resources to output directory
 set(mixer_resources overlay.png overlay.svg hud.html)
@@ -46,4 +52,4 @@ foreach(_resfile ${mixer_resources})
 					${CMAKE_SOURCE_DIR}/resource/${_resfile}
 					${TARGET_OUTPUT_DIRECTORY}/resource/${_resfile})
 endforeach()
-  
+

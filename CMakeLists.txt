@@ -119,6 +119,9 @@ set(CMAKE_CONFIGURATION_TYPES Debug Release)
 # TODO: Change this line to match your project name when you copy this file.
 project(cefmixer)
 
+#Remarks Heiner: c++ 17 standard needed for the cef 120 framework, as headers include c++ 17 syntax now
+set(CMAKE_CXX_STANDARD 17)
+
 # Use folders in the resulting project files.
 set_property(GLOBAL PROPERTY OS_FOLDERS ON)
 
@@ -195,12 +198,12 @@ set(
     CMAKE_RUNTIME_OUTPUT_DIRECTORY
     ${CMAKE_HOME_DIRECTORY}/bin
     )
-	
+
 set(
     CMAKE_LIBRARY_OUTPUT_DIRECTORY
     ${CMAKE_HOME_DIRECTORY}/lib
     )
-	
+
 set(
     TARGET_OUTPUT_DIRECTORY
     ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/$<CONFIGURATION>

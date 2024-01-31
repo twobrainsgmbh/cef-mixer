@@ -60,7 +60,7 @@ set(CEF_LIBCEF_DLL_WRAPPER_PATH "${_CEF_ROOT}/libcef_dll")
 
 # Shared compiler/linker flags.
 list(APPEND CEF_COMPILER_DEFINES
-  # Allow C++ programs to use stdint.h macros specified in the C99 standard that aren't 
+  # Allow C++ programs to use stdint.h macros specified in the C99 standard that aren't
   # in the C++ standard (e.g. UINT8_MAX, INT64_MIN, etc)
   __STDC_CONSTANT_MACROS __STDC_FORMAT_MACROS
   )
@@ -418,25 +418,25 @@ if(OS_WINDOWS)
 
   # List of CEF binary files.
   set(CEF_BINARY_FILES
+    cef_sandbox.lib
     chrome_elf.dll
-    d3dcompiler_43.dll
     d3dcompiler_47.dll
     libcef.dll
+    libcef.lib
     libEGL.dll
     libGLESv2.dll
-    natives_blob.bin
     snapshot_blob.bin
     v8_context_snapshot.bin
-    swiftshader
+    vk_swiftshader.dll
+    vk_swiftshader_icd.json
+    vulkan-1.dll
     )
 
   # List of CEF resource files.
   set(CEF_RESOURCE_FILES
-    cef.pak
-    cef_100_percent.pak
-    cef_200_percent.pak
-    cef_extensions.pak
-    devtools_resources.pak
+    chrome_100_percent.pak
+    chrome_200_percent.pak
+    resources.pak
     icudtl.dat
     locales
     )

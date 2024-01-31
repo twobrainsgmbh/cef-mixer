@@ -7,7 +7,7 @@
 # using `find_package(CEF REQUIRED)`. See the top-level CMakeLists.txt file
 # included with the CEF binary distribution for usage information.
 #
-
+#message(STATUS "CEF_ROOT: ${CEF_ROOT}")
 # Find the CEF binary distribution root directory.
 set(_CEF_ROOT "")
 if(CEF_ROOT AND IS_DIRECTORY "${CEF_ROOT}")
