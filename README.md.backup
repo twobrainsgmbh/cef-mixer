@@ -33,7 +33,7 @@ Relative path is unfortunately not possible, the existing cmake architecture doe
 
 7. Browse to the subfolder: "bin\x64-Release\src\Release" or "bin\x64-Debug\src\Debug" (Requires the cef standard or binaries, minimal contains only release buils) and run the **cefmixer.exe** application
 
-8. As the cef standard binary distribution does not support web-gpu we need download a chrome dev(canary build), best as a portable version (https://portableapps.com/apps/internet/google-chrome-portable-dev) and copy the cef binaries from there into the target directory of cef mixer once. The script CopyCEFWEBGPUtoOutDir.bat in the cef-mixer root dir will help with this task. Make sure to rebuild the cef-mixer solution after the script execution before running or debugging cef-mixer
+8. As the cef standard binary distribution does not support web-gpu we need download a chrome dev(canary build), best as a portable version (https://portableapps.com/apps/internet/google-chrome-portable-dev) and copy the cef binaries from there into the target directory of cef mixer once. The script CopyCEFWEBGPUtoOutDir.bat in the cef-mixer root dir will help with this task. Make sure to rebuild the cef-mixer solution after the script execution so that it 
 ## Usage
 Once the cefmixer.exe is built, it can be run without any arguments - in which case it will automatically navigate to https://webglsamples.org/aquarium/aquarium.html
 

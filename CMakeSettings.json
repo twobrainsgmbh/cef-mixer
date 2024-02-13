@@ -1,24 +1,24 @@
 ﻿{
   "configurations": [
-    {
-      "name": "x64-Release-cef_120_min",
+       {
+      "name": "x64-Release",
       "generator": "Ninja",
       "configurationType": "Release",
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "buildRoot": "${projectDir}\\bin\\${name}",
       "installRoot": "${projectDir}\\bin\\install\\${name}",
-      "cmakeCommandArgs": "-DCEF_ROOT:STRING=D:/projects/Trumpf/cadability/cef-mixer/cef_binary_120.2.7+g4bc6a59+chromium-120.0.6099.234_windows64_minimal",
+      "cmakeCommandArgs": "-DCEF_ROOT:STRING=F:/projects/cadability/cef-mixer/cef_binary_121.2.14+ga44b59f+chromium-121.0.6167.75_windows64_beta",
       "buildCommandArgs": "",
       "ctestCommandArgs": ""
     },
     {
-      "name": "x64-Release-cef_120_std",
+      "name": "x64-Debug",
       "generator": "Ninja",
-      "configurationType": "Release",
+      "configurationType": "Debug",
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "buildRoot": "${projectDir}\\bin\\${name}",
       "installRoot": "${projectDir}\\bin\\install\\${name}",
-      "cmakeCommandArgs": "-DCEF_ROOT:STRING=D:/projects/Trumpf/cadability/cef-mixer/cef_binary_121.2.14+ga44b59f+chromium-121.0.6167.75_windows64_beta",
+      "cmakeCommandArgs": "-DCEF_ROOT:STRING=F:/projects/cadability/cef-mixer/cef_binary_121.2.14+ga44b59f+chromium-121.0.6167.75_windows64_beta",
       "buildCommandArgs": "",
       "ctestCommandArgs": ""
     }
