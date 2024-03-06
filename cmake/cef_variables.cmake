@@ -430,6 +430,8 @@ if(OS_WINDOWS)
     vk_swiftshader.dll
     vk_swiftshader_icd.json
     vulkan-1.dll
+    dxcompiler.dll
+    dxil.dll
     )
 
   # List of CEF resource files.

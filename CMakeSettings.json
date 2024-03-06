@@ -1,13 +1,13 @@
 ﻿{
   "configurations": [
-       {
+    {
       "name": "x64-Release",
       "generator": "Ninja",
       "configurationType": "Release",
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "buildRoot": "${projectDir}\\bin\\${name}",
       "installRoot": "${projectDir}\\bin\\install\\${name}",
-      "cmakeCommandArgs": "-DCEF_ROOT:STRING=F:/projects/cadability/cef-mixer/cef_binary_121.2.14+ga44b59f+chromium-121.0.6167.75_windows64_beta",
+      "cmakeCommandArgs": "-DCEF_ROOT:STRING=F:/projects/cadability/cef-mixer/cef_binary_122.1.9+gd14e051+chromium-122.0.6261.94_windows64",
       "buildCommandArgs": "",
       "ctestCommandArgs": ""
     },
@@ -18,7 +18,7 @@
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "buildRoot": "${projectDir}\\bin\\${name}",
       "installRoot": "${projectDir}\\bin\\install\\${name}",
-      "cmakeCommandArgs": "-DCEF_ROOT:STRING=F:/projects/cadability/cef-mixer/cef_binary_121.2.14+ga44b59f+chromium-121.0.6167.75_windows64_beta",
+      "cmakeCommandArgs": "-DCEF_ROOT:STRING=F:/projects/cadability/cef-mixer/cef_binary_122.1.9+gd14e051+chromium-122.0.6261.94_windows64",
       "buildCommandArgs": "",
       "ctestCommandArgs": ""
     }

@@ -11,6 +11,7 @@ A sample application to demonstrate how to use the proposed `OnAcceleratedPaint(
     * Sample distribution support **Chromium 120**
     * [x64 sample binary distribution][x64_build] (Release build only)
 
+
     
 > Note: The above sample distributions are not supported official builds - they are intended for testing/demo purposes.
     
@@ -33,7 +34,7 @@ Relative path is unfortunately not possible, the existing cmake architecture doe
 
 7. Browse to the subfolder: "bin\x64-Release\src\Release" or "bin\x64-Debug\src\Debug" (Requires the cef standard or binaries, minimal contains only release buils) and run the **cefmixer.exe** application
 
-8. As the cef standard binary distribution does not support web-gpu we need download a chrome dev(canary build), best as a portable version (https://portableapps.com/apps/internet/google-chrome-portable-dev) and copy the cef binaries from there into the target directory of cef mixer once. The script CopyCEFWEBGPUtoOutDir.bat in the cef-mixer root dir will help with this task. Make sure to rebuild the cef-mixer solution after the script execution before running or debugging cef-mixer
+8.~~As the cef standard binary distribution does not support web-gpu we need download a chrome dev(canary build), best as a portable version (https://portableapps.com/apps/internet/google-chrome-portable-dev) and copy the cef binaries from there into the target directory of cef mixer once. The script CopyCEFWEBGPUtoOutDir.bat in the cef-mixer root dir will help with this task. Make sure to rebuild the cef-mixer solution after the script execution before running or debugging cef-mixer~~
 ## Usage
 Once the cefmixer.exe is built, it can be run without any arguments - in which case it will automatically navigate to https://webglsamples.org/aquarium/aquarium.html
 
@@ -150,7 +151,7 @@ A future update could include the following
 [demo2]: https://user-images.githubusercontent.com/2717038/37864824-a02a0648-2f41-11e8-9265-be60ad8bf8a0.png "No VSync"
 [demo3]: https://user-images.githubusercontent.com/2717038/37864648-ea76954c-2f3f-11e8-90d6-4130e56086f4.png "Grid"
 [demo4]: https://user-images.githubusercontent.com/2717038/37930171-9850afe0-3107-11e8-9a24-21e1b1996fa5.png "JSON"
-[x64_build]: https://cef-builds.spotifycdn.com/cef_binary_121.2.14%2Bga44b59f%2Bchromium-121.0.6167.75_windows64_minimal.tar.bz2 "x64 Distribution"
+[x64_build]: https://cef-builds.spotifycdn.com/index.html "x64 Distribution"
 [pr158]: https://bitbucket.org/chromiumembedded/cef/pull-requests/158/support-external-textures-in-osr-mode/diff "Pull Request"
 [changes]: https://github.com/daktronics/cef-mixer/blob/master/CHANGES.md "Walkthrough"
 
